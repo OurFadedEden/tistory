@@ -1,0 +1,224 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>兄弟, 愛. — Our Faded Eden</title>
+<style>
+:root{--sun:#FAEDA5;--sea:#A5D4FA;--gold:#FAEDA5;--ink:#557da4;--muted:#829db8;--line:#a9d9f7;--paper:#fffdf6}
+*{box-sizing:border-box}body{margin:0;padding:18px 12px 34px;background:#f8f8f3;color:var(--ink);font-family:"Noto Sans KR","Apple SD Gothic Neo",system-ui,sans-serif}
+button,input,textarea,select{font:inherit}.app{max-width:1040px;margin:auto}
+.panel{border:1px solid #ffffffd9;border-radius:27px;background:linear-gradient(135deg,#fffef2e8 0%,#f3faffed 52%,#fffdf3e8 100%);box-shadow:inset 0 0 0 1px #a5d4fa9c,inset 0 0 0 5px #ffffff80,0 10px 30px #8dbbdb1f,0 2px 8px #ffffffb8;backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);position:relative;overflow:hidden}
+.panel:before{content:"";position:absolute;inset:0;pointer-events:none;border-radius:inherit;background:linear-gradient(135deg,#ffffffd9 0%,transparent 20%,transparent 76%,#a5d4fa35 100%),repeating-linear-gradient(90deg,transparent 0 50px,#a6d4f51a 51px 52px),repeating-linear-gradient(0deg,transparent 0 50px,#a6d4f51a 51px 52px);box-shadow:inset 0 1px 0 #fff,inset 1px 0 0 #fff}
+.hero{padding:22px clamp(17px,4vw,40px) 26px;margin-bottom:16px}
+.topline{position:relative;display:flex;justify-content:space-between;align-items:center;gap:12px;border-bottom:1px solid #a9d9f7;padding-bottom:12px;font:11px monospace;letter-spacing:.14em;color:#6e9ac1}
+.brand{font-size:12px;letter-spacing:.18em;white-space:nowrap;flex:0 0 auto}.brand b{font-size:19px;color:#d9c66e;margin-right:8px}
+.hero-inner{position:relative}
+.record{margin-top:24px;font:11px/1.8 monospace;letter-spacing:.14em;color:#6d9bc4}
+.signal-status{display:flex;align-items:center;gap:8px;font:10px monospace;letter-spacing:.15em;color:#75a6c9}
+.pulse{display:inline-block;width:7px;height:7px;border-radius:50%;background:#8fd6e9;box-shadow:0 0 0 4px #a5d4fa35;animation:pulse 1.8s infinite}
+@keyframes pulse{50%{box-shadow:0 0 0 7px #a5d4fa08;opacity:.6}}
+.title{margin:12px 0 0;text-align:center;font:400 clamp(46px,8.4vw,82px)/1.25 "Noto Serif KR","Batang",serif;letter-spacing:.13em;color:#557fa6;text-shadow:0 2px #fff}
+.title .comma,.title .period{color:var(--gold)}
+.subtitle-line{min-height:2.2em;text-align:center;margin:8px 0 0;font:clamp(14px,2.3vw,23px)/1.8 "Noto Serif KR","Batang",serif;letter-spacing:.045em;color:#7d98b3}
+.typed{white-space:pre-wrap;overflow-wrap:anywhere}.cursor{display:inline-block;height:1.05em;width:1px;background:#6aaedb;vertical-align:-.13em;margin-left:3px;animation:blink .85s steps(2,start) infinite}
+@keyframes blink{to{visibility:hidden}}
+.radar-grid{display:grid;grid-template-columns:minmax(90px,1fr) minmax(220px,2.6fr) minmax(94px,.82fr);align-items:center;gap:clamp(8px,2vw,22px);margin:clamp(28px,5vw,48px) 0 0;position:relative}
+.side-info{font:clamp(8px,1.35vw,12px)/2 monospace;letter-spacing:.025em;color:#7d9db8;overflow-wrap:anywhere}
+.side-info .block{margin-bottom:clamp(18px,3vw,32px)}.side-info .label{color:#5e93bc;letter-spacing:.09em}.side-info.right{text-align:right}
+.radar{position:relative;aspect-ratio:1;width:100%;border:2px solid #ffffff;border-radius:50%;overflow:hidden;background:
+radial-gradient(circle at 38% 27%,#fff9d7a8,transparent 33%),
+repeating-radial-gradient(circle at 50% 50%,transparent 0 9.4%,#8cc8eb3b 9.65% 10%,transparent 10.2% 15.7%),
+linear-gradient(90deg,transparent calc(50% - .5px),#7cbce555 50%,transparent calc(50% + .5px)),
+linear-gradient(transparent calc(50% - .5px),#7cbce555 50%,transparent calc(50% + .5px)),
+linear-gradient(125deg,#fff5bd,#d9f0ff 68%,#f5fbff);box-shadow:0 0 0 1px #7ec8f0,0 0 0 7px #a5d4fa25,0 0 0 15px #ffffff55,inset 0 0 0 5px #ffffff75,inset 0 0 25px #fff9}
+.radar:before{content:"N";position:absolute;top:-22px;left:50%;transform:translateX(-50%);font:11px monospace;color:#77a6cc}
+.radar:after{content:"S";position:absolute;bottom:4px;left:50%;transform:translateX(-50%);font:11px monospace;color:#77a6cc}
+.sweep{position:absolute;inset:0;border-radius:50%;background:conic-gradient(from 0deg,transparent 0 294deg,#fff8d400 304deg,#fff6c9b8 330deg,#fffdf0d9 335deg,transparent 341deg);animation:spin 9s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+.cross{position:absolute;inset:0;background:linear-gradient(90deg,transparent 49.8%,#76b8e84a 50%,transparent 50.2%),linear-gradient(transparent 49.8%,#76b8e84a 50%,transparent 50.2%)}
+.core{position:absolute;left:50%;top:50%;width:22px;height:22px;transform:translate(-50%,-50%);border-radius:50%;background:#f8e77b;border:5px solid #fff8d9;box-shadow:0 0 0 8px #fff8d978,0 0 20px #f7dc82}
+.dot{position:absolute;width:12px;height:12px;border-radius:50%;box-shadow:0 0 0 5px #ffffff50}.dot.j{left:36%;top:35%;background:#fae58a}.dot.d{left:72%;top:25%;background:#65c7e8}.dot.s{left:26%;top:70%;background:#a5d4fa}.dot.echo{left:61%;top:84%;width:9px;height:9px;background:#f1b47e}
+.depth{position:absolute;right:0;top:5%;padding:6px 10px;background:#ffffffd9;border:1px solid #a5d4fa;border-radius:10px 0 0 10px;font:10px monospace;color:#6998bc}
+/* Refined sonar: glass lens, orbital ticks, soft signal bloom */
+.radar{isolation:isolate;border:1px solid #fff;border-radius:50%;background:
+ radial-gradient(circle at 50% 50%,#fffdf5 0 2.2%,#f9e99c 2.7% 4.2%,#fff9d7 4.7% 6%,transparent 6.4%),
+ radial-gradient(circle at 50% 50%,transparent 0 13%,#ffffff7a 13.2% 13.7%,transparent 14% 24%,#ffffff85 24.2% 24.7%,transparent 25% 36%,#ffffff8a 36.2% 36.7%,transparent 37% 49%,#ffffffb8 49.2% 49.7%,transparent 50%),
+ repeating-conic-gradient(from 0deg,#ffffff30 0deg 1deg,transparent 1deg 15deg),
+ radial-gradient(circle at 34% 25%,#fff9d6 0%,transparent 34%),
+ linear-gradient(135deg,#fff5c9 0%,#c9eaff 48%,#a5d4fa 76%,#fff9df 100%);
+ box-shadow:0 0 0 3px #ffffffc9,0 0 0 5px #8ccdf0a8,0 0 0 11px #b7e2f33d,0 0 30px #9ed6f44d,inset 0 0 0 9px #ffffff30,inset 0 0 28px #fff;}
+.radar .sweep{z-index:1;opacity:.8;background:conic-gradient(from 0deg,transparent 0 300deg,#fff9d600 309deg,#fff9d95c 324deg,#fffdf0dc 334deg,#fff9d95c 340deg,transparent 350deg);mix-blend-mode:screen}
+.radar .cross{z-index:2;inset:7%;border:1px solid #ffffff75;border-radius:50%;background:linear-gradient(90deg,transparent calc(50% - .5px),#579ecb60 50%,transparent calc(50% + .5px)),linear-gradient(transparent calc(50% - .5px),#579ecb60 50%,transparent calc(50% + .5px))}
+.radar:before{content:"N";z-index:5;top:4%;left:50%;transform:translateX(-50%);font:bold 10px monospace;letter-spacing:.1em;color:#5c9ac5;background:#f7fcffcc;border:1px solid #fff;border-radius:10px;padding:2px 5px}
+.radar:after{content:"S";z-index:5;bottom:4%;left:50%;transform:translateX(-50%);font:bold 10px monospace;letter-spacing:.1em;color:#5c9ac5;background:#f7fcffcc;border:1px solid #fff;border-radius:10px;padding:2px 5px}
+.radar .dot{z-index:4;width:10px;height:10px;border:2px solid #ffffffd9;box-shadow:0 0 0 4px #ffffff48,0 0 13px currentColor}
+.radar .dot.j{color:#e9c65c;background:#fae58a}.radar .dot.d{color:#55bde5;background:#65c7e8}.radar .dot.s{color:#65a9d7;background:#a5d4fa}.radar .dot.echo{color:#e9a56e;background:#f1b47e}
+.radar .core{z-index:5;width:18px;height:18px;background:#fae77d;border:4px solid #fffdf0;box-shadow:0 0 0 5px #fff9d98c,0 0 0 10px #fff8d94d,0 0 20px #f6d76d}
+.radar .core:after{content:"";position:absolute;inset:-15px;border:1px solid #ffffffa8;border-radius:50%;animation:corepulse 3s ease-out infinite}
+@keyframes corepulse{0%{transform:scale(.65);opacity:.9}100%{transform:scale(1.5);opacity:0}}
+.highlight{padding:0 .13em .04em;border-radius:.16em;box-decoration-break:clone;-webkit-box-decoration-break:clone;font-weight:inherit}
+.highlight.yellow{background:linear-gradient(transparent 36%,#faeda5d9 36% 91%,transparent 91%);color:inherit}
+.highlight.blue{background:linear-gradient(transparent 36%,#a5d4fad9 36% 91%,transparent 91%);color:inherit}
+.mark-tools{display:flex;flex-wrap:wrap;gap:6px;margin:0 0 8px}
+.mark-tools button{padding:6px 9px;font-size:10px}
+.mark-tools .yellow-btn{background:#fff8d8;border-color:#ead98d;color:#947b36}
+.mark-tools .blue-btn{background:#e8f6ff;border-color:#b4dcf4;color:#548cb5}
+.depth-gauge{align-self:stretch;min-width:0;position:relative;display:flex;flex-direction:column;justify-content:center;padding:13px 10px;border:1px solid #ffffffdf;border-radius:16px;background:linear-gradient(150deg,#fffef0d9,#e8f6ffdb 56%,#ffffffc9);box-shadow:inset 0 0 0 1px #a8d8f580,inset 0 1px 0 #fff,0 5px 16px #8ab9d51c;backdrop-filter:blur(8px)}
+.depth-title{font:10px monospace;letter-spacing:.12em;color:#5e91ba;border-bottom:1px solid #acd9f580;padding-bottom:9px;margin-bottom:11px;text-align:center}
+.depth-scale{display:grid;grid-template-columns:20px 1fr;gap:9px;align-items:stretch;min-height:250px}
+.depth-tube{position:relative;border:1px solid #8bc9ef;border-radius:12px;overflow:hidden;background:linear-gradient(180deg,#fff9d8 0%,#c7ecf9 42%,#a5d4fa 100%);box-shadow:inset 0 0 8px #ffffffc9,0 0 0 3px #ffffff80}
+.depth-tube:before{content:"";position:absolute;inset:7px 5px;background:repeating-linear-gradient(to bottom,transparent 0 10px,#ffffffb8 11px 12px);opacity:.9}
+.depth-tube:after{content:"";position:absolute;left:0;right:0;top:40%;height:2px;background:#fff;border-top:1px solid #FAEDA5;box-shadow:0 0 8px #fff;}
+.depth-ticks{display:flex;flex-direction:column;justify-content:space-between;font:9px/1.3 monospace;color:#7399b9;padding:1px 0}
+.depth-ticks span{position:relative;white-space:nowrap}.depth-ticks span:before{content:"";display:inline-block;width:5px;height:1px;background:#84b9dc;vertical-align:middle;margin-right:4px}
+.depth-current{margin-top:12px;padding-top:10px;border-top:1px solid #acd9f580;text-align:center;color:#7197b9;font:9px/1.7 monospace;letter-spacing:.04em}.depth-current b{display:block;margin-top:4px;border:1px solid #9dceef;border-radius:8px;padding:5px 2px;background:#ffffffb8;font-size:12px;color:#507fa9;letter-spacing:.02em}
+.depth-gauge .depth-note{margin-top:8px;text-align:center;font:8px/1.6 monospace;color:#8ba9c4}
+.legend{display:flex;justify-content:center;gap:clamp(13px,3vw,30px);flex-wrap:wrap;margin:25px 0 0;font:11px monospace;letter-spacing:.13em;color:#789bb9;position:relative}
+.legend span{display:flex;align-items:center;gap:7px}.swatch{width:10px;height:10px;border-radius:50%;background:#fae58a}.swatch.blue{background:#70c9e8}.swatch.signal{background:#a5d4fa}
+.signature{display:flex;justify-content:space-between;gap:12px;align-items:end;margin-top:25px;padding-top:14px;border-top:1px solid #b9def3;position:relative;font:10px/1.7 monospace;letter-spacing:.06em;color:#7c9fbd}.signature span:last-child{text-align:right}
+.log{position:relative;margin-top:28px;padding-top:22px;border-top:1px dashed #b7dff5}
+.log .intro{font:10px monospace;letter-spacing:.15em;color:#8ca9c1;margin-bottom:18px}
+.content{color:#536e89;font-size:14px;line-height:2}
+.content p{margin:0 0 15px;overflow-wrap:anywhere}.content strong{font-weight:700;background:linear-gradient(transparent 58%,#faeda5b8 58%)}.content em{color:#5f9bc6}
+.content h3{font:500 19px/1.6 "Noto Serif KR",serif;color:#6688ad;margin:24px 0 12px;padding-bottom:8px;border-bottom:1px solid #cde6f6}
+.dialogue{display:block;margin:17px 0;padding:2px 0 2px 14px;border-left:2px solid #FAEDA5;line-height:1.95}.dialogue.right{border-left-color:#A5D4FA}.bubble{max-width:100%;padding:2px 0;border:0;border-radius:0;background:transparent;box-shadow:none;line-height:1.95}.speaker{font-size:10px;font-weight:700;letter-spacing:.13em;color:#a38d48;margin-bottom:3px}.right .speaker{color:#5799c5}
+.divider{display:flex;align-items:center;gap:13px;margin:26px 0;color:#9ebfda;font-size:12px}.divider:before,.divider:after{content:"";height:1px;flex:1;background:linear-gradient(90deg,transparent,#a8d6f4)}.divider:after{background:linear-gradient(90deg,#a8d6f4,transparent)}
+blockquote{margin:16px 0;padding:10px 15px;border-left:2px solid #a5d4fa;background:#edf8ffad;color:#5b83a6}
+.editor{padding:20px;margin-bottom:16px;background:linear-gradient(135deg,#fffef4ed,#eef9ffed 58%,#ffffffd9)}.section-head{position:relative;display:flex;justify-content:space-between;align-items:center;gap:10px;border-bottom:1px solid #b5def6;padding-bottom:12px;margin-bottom:14px;font:11px monospace;letter-spacing:.16em;color:#6496bd}.section-head b{font-weight:400;font-size:13px}
+.formgrid{position:relative;display:grid;grid-template-columns:1fr 1fr;gap:11px}
+label{display:block;margin-bottom:5px;font-size:11px;color:#789bb8}
+input,textarea{width:100%;border:1px solid #c9e4f5;border-radius:10px;padding:10px 12px;background:#fffefaeb;color:#536f8c;font-size:12px;outline:none}
+input:focus,textarea:focus{border-color:#85c7ed;box-shadow:0 0 0 3px #a5d4fa28}
+textarea{min-height:220px;resize:vertical;line-height:1.85;font-family:inherit}.wide{grid-column:1/-1}
+.tools{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin-top:12px;position:relative}
+button{cursor:pointer;border:1px solid #b8dff6;border-radius:9px;padding:9px 13px;background:linear-gradient(120deg,#fffef8,#eef9ff);color:#5887ad;font-size:11px}
+button.primary{background:linear-gradient(110deg,#fff4c6,#fffdf7 45%,#e7f6ff);border-color:#c5dff0}button:hover{filter:brightness(.98);transform:translateY(-1px)}
+.help{position:relative;font-size:11px;line-height:1.85;color:#7f9db7;margin-top:12px}.status{font-size:11px;color:#4d91bb}
+.codebox{position:relative;margin-top:12px}.codebox textarea{min-height:130px;font:10px/1.6 monospace}
+.bottomline{margin-top:14px;padding:14px 10px;text-align:center;color:#8aabc6;font:10px monospace;letter-spacing:.2em}
+
+.dot.signal{background:#a5d4fa}.radar-dots{position:absolute;inset:0;z-index:2}.radar-dots .dot{transform:translate(-50%,-50%);display:block}.radar-dots .dot.yellow{background:#FAEDA5;box-shadow:0 0 0 5px #FAEDA550,0 0 12px #FAEDA5}.radar-dots .dot.blue{background:#A5D4FA;box-shadow:0 0 0 5px #A5D4FA55,0 0 12px #A5D4FA}
+@media(min-width:800px){.workspace{display:grid;grid-template-columns:1fr 1fr;gap:16px;align-items:start}.editor{position:sticky;top:12px}.hero{padding-left:38px;padding-right:38px}}
+@media(max-width:600px){body{padding:8px}.hero{padding:17px 14px 20px;border-radius:20px}.topline{font-size:8px;letter-spacing:.08em;gap:6px;align-items:center}.topline>span:last-child{white-space:nowrap;text-align:right;flex:0 1 auto}.brand{font-size:10px;letter-spacing:.09em}.brand b{font-size:16px;margin-right:4px}.title{letter-spacing:.06em}.radar-grid{grid-template-columns:minmax(54px,.8fr) minmax(0,2.5fr) minmax(54px,.8fr);gap:6px;margin-top:30px}.side-info{font-size:7px;line-height:1.85}.side-info .block{margin-bottom:15px}.depth{font-size:8px;padding:4px 6px}.depth-gauge{padding:8px 5px;border-radius:12px}.depth-title{font-size:8px;letter-spacing:.04em;padding-bottom:6px;margin-bottom:7px}.depth-scale{grid-template-columns:12px 1fr;gap:4px;min-height:200px}.depth-ticks{font-size:7px}.depth-ticks span:before{width:3px;margin-right:2px}.depth-current{font-size:7px;margin-top:8px;padding-top:7px}.depth-current b{font-size:9px;padding:4px 1px}.depth-gauge .depth-note{font-size:6px}.legend{gap:12px;letter-spacing:.05em;font-size:9px}.editor{padding:14px}.formgrid{grid-template-columns:1fr}.wide{grid-column:auto}.content{font-size:13px}.content p{margin:0 0 1em;line-height:1.95}.content p:last-child{margin-bottom:0}.bubble{max-width:100%}.signature{font-size:8px}}
+@media(prefers-reduced-motion:reduce){.sweep,.cursor,.pulse{animation:none}}
+
+/* ===== v10: 컨테이너 기반 반응형 (스킨 너비 제한 대응) ===== */
+.app{container:kd/inline-size;font-family:"Noto Sans KR","Apple SD Gothic Neo",system-ui,sans-serif;color:var(--ink)}
+.hero{padding:20px clamp(14px,5cqw,40px) 24px}
+.topline{flex-wrap:wrap;row-gap:6px;font-size:10px;letter-spacing:.08em}
+.brand{font-size:12px;letter-spacing:.1em;white-space:nowrap}.brand b{font-size:17px;margin-right:5px}
+.topline>span:last-child{white-space:nowrap;margin-left:auto}
+.record{font-size:10px;letter-spacing:.1em}
+.title{font-size:clamp(38px,12cqw,82px);letter-spacing:.08em}
+.subtitle-line{font-size:clamp(13px,4.2cqw,23px)}
+.radar-grid{grid-template-columns:1fr 1fr;gap:20px 10px;margin:34px 0 0;align-items:start}
+.radar{grid-column:1/-1;grid-row:1;width:min(86%,340px);justify-self:center}
+.side-info{grid-column:1;grid-row:2;font:11px/1.9 monospace;letter-spacing:.02em;overflow-wrap:normal;word-break:keep-all}
+.side-info .block{margin-bottom:14px}
+.depth-gauge{grid-column:2;grid-row:2;padding:12px 9px}
+.depth-title{font-size:9px;letter-spacing:.08em;white-space:nowrap}
+.depth-scale{grid-template-columns:16px 1fr;gap:6px;min-height:210px}
+.depth-ticks{font-size:9px}.depth-ticks span:before{width:4px;margin-right:3px}
+.depth-current,.depth-current b{white-space:nowrap}.depth-current{font-size:9px}.depth-current b{font-size:12px}
+.depth-gauge .depth-note{font-size:8px}
+.signature{flex-wrap:wrap;font-size:10px}
+.content{font-size:14px;word-break:keep-all;overflow-wrap:break-word}
+.content p{margin:0;overflow-wrap:break-word}
+.dialogue,.bubble{word-break:keep-all;overflow-wrap:break-word}
+@container kd (min-width:620px){
+.radar-grid{grid-template-columns:minmax(100px,1fr) minmax(240px,2.6fr) minmax(104px,.82fr);gap:clamp(10px,2.4cqw,22px);align-items:center}
+.radar{grid-column:2;grid-row:1;width:100%}
+.side-info{grid-column:1;grid-row:1;font-size:12px}
+.depth-gauge{grid-column:3;grid-row:1}
+.topline{font-size:11px}.content{font-size:15px}
+}
+@media(max-width:600px){body{padding:8px}}
+</style>
+</head>
+<body>
+<div class="app">
+<section class="panel hero" id="hero">
+<div class="topline"><span class="brand"><b>✧</b> Our Faded Eden</span><span>WRITE / PREVIEW / PUBLISH　☰</span></div>
+<div class="hero-inner">
+<div class="record"><div id="recordView">REC // CH.26.10.26</div><div class="signal-status"><i class="pulse"></i> SONAR ONLINE · SIGNAL FOUND</div></div>
+<h1 class="title">兄弟<span class="comma">,</span> 愛<span class="period">.</span></h1>
+<div class="subtitle-line"><span class="typed" id="typed"></span><span class="cursor"></span></div>
+<div class="radar-grid">
+<div class="side-info"><div class="block"><span class="label">LAT</span> 34° 13′ 26″<br><span class="label">LON</span> 128° 38′ 12″</div><div class="block"><span class="label">☼ TWILIGHT</span><br>200 – 1000m<br>LIGHT 1%</div><div class="block"><span class="label">○ ABYSSAL</span><br>4000m+<br>400atm / 2°C</div></div>
+<div class="radar"><div class="sweep"></div><div class="cross"></div><div id="radarDots" class="radar-dots"><i class="dot j" style="left:36%;top:35%"></i><i class="dot d" style="left:72%;top:25%"></i><i class="dot signal" style="left:26%;top:70%"></i><i class="dot echo" style="left:61%;top:84%"></i></div><i class="core"></i></div>
+<div class="depth-gauge"><div class="depth-title">DEPTH / m</div><div class="depth-scale"><div class="depth-tube"></div><div class="depth-ticks"><span>0 m</span><span>400 m</span><span>1000 m</span><span>2000 m</span><span>3000 m</span><span>4000 m+</span></div></div><div class="depth-current">CURRENT DEPTH<b id="depthCurrentView">− 400 m</b></div><div class="depth-note">ABYSSAL ZONE<br>2°C / 400 atm</div></div>
+</div>
+<div class="signature"><span id="footleftView">JJUN ✦ 兄弟, 愛.</span><span id="footrightView">같은 성씨, 다른 이름…</span></div>
+<div class="log"><div class="intro">▸ ARCHIVED MEMORY / TEXT SIGNAL</div><div class="content" id="contentView"></div></div>
+</div>
+</section>
+<section class="panel editor">
+<div class="section-head"><span><b>✧</b> EDITOR</span><span>MARKDOWN INPUT　⌄</span></div>
+<div class="formgrid">
+<div><label for="record">기록 번호</label><input id="record" value="REC // CH.26.10.26"></div>
+<div><label for="subtitle">타이핑 서브타이틀</label><input id="subtitle" value="황혼이 잠기는 곳, 심해가 시작되는 순간"></div>
+<div><label for="depthInput">현재 수심 (m, 음수도 가능)</label><input id="depthInput" type="number" value="-400" step="1"></div><div><label for="depthMax">수심계 최대 깊이 (m)</label><input id="depthMax" type="number" value="4000" min="100" step="100"></div><div class="wide"><label for="dotInput">레이더 신호점 · 한 줄에 하나씩 (가로%, 세로%, 색상, 이름)</label><textarea id="dotInput" style="min-height:100px" spellcheck="false">36,35,yellow,재준
+72,25,blue,도준
+26,70,blue,신호
+61,84,yellow,보조 신호</textarea><div class="help">좌표는 레이더 왼쪽 위가 0,0이고 오른쪽 아래가 100,100이에요. 색상은 yellow 또는 blue만 사용해요. 예: 40,60,blue,새 신호</div></div><div><label for="unnamedTone">이름 없는 대사 기본 색상</label><select id="unnamedTone"><option value="yellow">연노랑</option><option value="blue">하늘색</option></select><div class="help">[노랑]/[하늘] 표기로 대사마다 따로 지정할 수도 있어요.</div></div><div class="wide"><label for="bodytext">본문 · 대사 (마크다운)</label><div class="mark-tools"><button type="button" class="yellow-btn" data-mark="yellow">✦ 노랑 형광펜</button><button type="button" class="blue-btn" data-mark="blue">✦ 하늘 형광펜</button></div><textarea id="bodytext" spellcheck="false">낮게 잠긴 목소리가 흰 입김과 함께 흩어졌다.
+
+재준은 주머니 속에 들어 있던 도준의 손을 거칠게 잡아당겼다.
+
+[재준] "…너 진짜."
+
+바다는 해 질 무렵의 빛을 머금고 조용히 숨을 쉬었다. 도준은 대답 대신 고개를 돌렸다.
+
+[도준] "…찾으러 올 줄 알았어."
+
+[재준] "누가 그렇게 반칙 쓰래, 한도준."
+
+---
+
+**괜찮다고, 같이 걷고 싶다고 말하며 웃는 그 얼굴이 너무 예뻐서**, 속이 다 쓰렸다.</textarea></div>
+<div class="wide"><label for="footleft">하단 왼쪽 문구</label><input id="footleft" value="JJUN ✦ 兄弟, 愛."></div>
+<div class="wide"><label for="footright">하단 오른쪽 문구</label><input id="footright" value="같은 성씨, 다른 이름…"></div>
+</div>
+<div class="tools"><button id="copy" class="primary">〈/〉 HTML 복사</button><button id="download">↓ HTML 저장</button><button id="reset">↻ 예시 복원</button><span class="status" id="status"></span></div>
+<div class="help">사용법: 일반 문장은 본문 · <b>[재준] "대사"</b>는 왼쪽 세로선 · <b>[도준] "대사"</b>는 오른쪽 세로선 · 이름 없이 <b>[노랑] "대사"</b> 또는 <b>[하늘] "대사"</b>로 색상을 직접 지정 · 색상 표기를 생략한 <b>"대사"</b>는 노랑으로 표시 · <b>==노랑 형광펜==</b> · <b>==하늘:문장==</b> · <b>**굵게**</b> · <b>*기울임*</b> · <b>## 소제목</b> · <b>---</b> 장면 구분선. 빈 줄로 문단을 나눌 수 있어요.</div>
+<div class="codebox"><label for="exportCode">티스토리 게시용 HTML (복사 버튼을 누르면 여기에 생성돼요)</label><textarea id="exportCode" readonly placeholder="HTML 복사 버튼을 눌러 코드를 생성하세요." hidden></textarea></div>
+</section>
+<div class="bottomline">☾　··············　JJUN　✧　兄弟, 愛.　··············　✦</div>
+</div>
+<script>
+const $=id=>document.getElementById(id);
+const initial={record:$('record').value,subtitle:$('subtitle').value,bodytext:$('bodytext').value,footleft:$('footleft').value,footright:$('footright').value,depthInput:$('depthInput').value,depthMax:$('depthMax').value,dotInput:$('dotInput').value,unnamedTone:$('unnamedTone').value};
+function esc(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;')}
+function inline(s){return esc(s).replace(/==하늘:(.+?)==/g,'<mark class="highlight blue">$1</mark>').replace(/==(.+?)==/g,'<mark class="highlight yellow">$1</mark>').replace(/\*\*(.+?)\*\*/g,'<strong>$1</strong>').replace(/\*(.+?)\*/g,'<em>$1</em>').replace(/~~(.+?)~~/g,'<del>$1</del>').replace(/`(.+?)`/g,'<code>$1</code>')}
+function parse(s,defaultTone='yellow'){let out=[],p=[];const flush=()=>{if(p.length){out.push({t:'p',s:p.join('\n')});p=[]}};for(const line of s.replace(/\r/g,'').split('\n')){if(/^\s*(---+|\*\*\*+|___+)\s*$/.test(line)){flush();out.push({t:'hr'});continue}let h=line.match(/^\s{0,3}(#{1,3})\s+(.+)/);if(h){flush();out.push({t:'h',s:h[2]});continue}let d=line.match(/^\s*\[(재준|한재준|JAEJUN|도준|한도준|DOJUN)\]\s*(.*)$/i);if(d){flush();let right=/도준|DOJUN/i.test(d[1]);out.push({t:'d',right,name:right?'도준':'재준',s:d[2]});continue}let uq=line.match(/^\s*(?:\[(노랑|하늘|yellow|blue)\]\s*)?(?:["“”「『])(.*?)(?:["“”」』])\s*$/i);if(uq){flush();let tone=(uq[1]||defaultTone).toLowerCase(),right=tone==='하늘'||tone==='blue';out.push({t:'d',right,name:'',s:uq[2]});continue}let q=line.match(/^\s*&gt;\s?(.*)$/);if(q){flush();out.push({t:'q',s:q[1]});continue}if(!line.trim()){flush();continue}p.push(line)}flush();return out}
+function content(s,defaultTone='yellow'){const b=parse(s,defaultTone).map(x=>({t:x.t,h:x.t==='hr'?'<div class="divider"><span>✦　✧　✦</span></div>':x.t==='h'?'<h3>'+inline(x.s)+'</h3>':x.t==='d'?'<div class="dialogue '+(x.right?'right':'left')+'"><div class="bubble">'+(x.name?'<div class="speaker">'+x.name+'</div>':'')+inline(x.s)+'</div></div>':x.t==='q'?'<blockquote>'+inline(x.s)+'</blockquote>':'<p>'+x.s.split('\n').map(inline).join('<br>')+'</p>'}));return b.map((x,i)=>(i&&x.t==='p'&&b[i-1].t==='p'?'<br>':'')+x.h).join('')}
+function data(){return {record:$('record').value,subtitle:$('subtitle').value,bodytext:$('bodytext').value,footleft:$('footleft').value,footright:$('footright').value,depth:Number($('depthInput').value||0),depthMax:Math.max(100,Number($('depthMax').value||4000)),dots:$('dotInput').value,unnamedTone:$('unnamedTone').value}}
+function makeDots(raw){return raw.split(/\n/).map(line=>{let a=line.split(',').map(x=>x.trim());if(a.length<3)return '';let x=Math.max(0,Math.min(100,Number(a[0]))),y=Math.max(0,Math.min(100,Number(a[1]))),color=a[2].toLowerCase()==='yellow'?'yellow':'blue',label=a.slice(3).join(',');return '<i class="dot '+color+'" style="left:'+x+'%;top:'+y+'%" title="'+esc(label)+'" aria-label="'+esc(label)+'"></i>'}).join('')}
+function updateDepth(d){$('depthCurrentView').textContent=(d.depth<0?'− '+Math.abs(d.depth):d.depth)+' m';const tube=document.querySelector('.depth-tube');if(tube){let pct=Math.max(0,Math.min(100,Math.abs(d.depth)/d.depthMax*100));tube.style.setProperty('--depth-fill',pct+'%');tube.style.background='linear-gradient(to bottom,#FAEDA5 0%,#A5D4FA '+Math.max(12,pct)+'%,#ffffff 100%)';tube.style.setProperty('--depth-percent',pct+'%')}const ticks=document.querySelector('.depth-ticks');if(ticks){ticks.innerHTML=[0,.1,.25,.5,.75,1].map((v,i)=>'<span>'+((i===5?d.depthMax+'+':Math.round(d.depthMax*v))+' m')+'</span>').join('')}}
+let typingTimer;
+function typeSubtitle(text){clearInterval(typingTimer);const el=$('typed');el.textContent='';let i=0;typingTimer=setInterval(()=>{el.textContent=text.slice(0,i++);if(i>text.length)clearInterval(typingTimer)},58)}
+function update(){let d=data();$('recordView').textContent=d.record;$('footleftView').textContent=d.footleft;$('footrightView').textContent=d.footright;$('contentView').innerHTML=content(d.bodytext,d.unnamedTone);$('radarDots').innerHTML=makeDots(d.dots);updateDepth(d);typeSubtitle(d.subtitle)}
+['record','subtitle','bodytext','footleft','footright','depthInput','depthMax','dotInput','unnamedTone'].forEach(id=>$(id).addEventListener('input',update));
+document.querySelectorAll('[data-mark]').forEach(btn=>btn.addEventListener('click',()=>{const ta=$('bodytext'),kind=btn.dataset.mark,start=ta.selectionStart,end=ta.selectionEnd;const chosen=ta.value.slice(start,end)||'강조할 문장';const wrapped=kind==='blue'?'==하늘:'+chosen+'==':'=='+chosen+'==';ta.setRangeText(wrapped,start,end,'select');ta.focus();update()}));
+function scopeCSS(P){
+ const skip=/^(\.editor|\.formgrid|\.section-head|label|input|textarea|button|select|\.tools|\.help|\.status|\.codebox|\.mark-tools|\.wide|\.workspace|\.bottomline|body|html)(?![\w-])/;
+ const sel=t=>t.split(',').map(x=>{x=x.trim();if(skip.test(x))return '';if(x===':root'||x==='.app')return P;if(x==='*')return P+' *';return P+' '+x}).filter(Boolean).join(',');
+ const walk=l=>{let o='';for(const r of l){const c=r.cssText||'';if(r.selectorText!==undefined&&r.style){const q=sel(r.selectorText);if(q)o+=q+'{'+r.style.cssText+'}'}else if(/^@keyframes/.test(c)){o+=c}else if(/^@(media|container)/.test(c)&&r.cssRules){const m=c.match(/^(@(?:media|container)[^{]*)\{/),i=walk(r.cssRules);if(i&&m)o+=m[1].trim()+'{'+i+'}'}}return o};
+ let css='';for(const sh of document.styleSheets){try{css+=walk(sh.cssRules)}catch(e){}}
+ return css.replace(/@keyframes (\w+)/g,'@keyframes kd-$1').replace(/(animation:[^;}]*?)\b(pulse|blink|spin|corepulse)\b/g,'$1kd-$2').replace(/\s+/g,' ')
+}
+function exported(full){
+ const d=data(),U='kd'+Math.random().toString(36).slice(2,6),css=scopeCSS('#'+U);
+ const ticks=[0,.1,.25,.5,.75,1].map((v,i)=>`<span>${i===5?d.depthMax+'+':Math.round(d.depthMax*v)} m</span>`).join('');
+ const depthLabel=(d.depth<0?'− '+Math.abs(d.depth):d.depth)+' m';
+ const pct=Math.max(12,Math.min(100,Math.abs(d.depth)/d.depthMax*100));
+ const js=`(function(){var e=document.getElementById("${U}t");if(!e)return;var t=e.textContent,i=0;e.textContent="";var k=setInterval(function(){e.textContent=t.slice(0,i++);if(i>t.length)clearInterval(k)},58)})();`;
+ const frag=`<style>${css}</style><div id="${U}" class="app"><section class="panel hero"><div class="topline"><span class="brand"><b>✧</b> Our Faded Eden</span><span>SONAR LOG / ARCHIVE</span></div><div class="hero-inner"><div class="record"><div>${esc(d.record)}</div><div class="signal-status"><i class="pulse"></i> SONAR ONLINE · SIGNAL FOUND</div></div><div class="title">兄弟<span class="comma">,</span> 愛<span class="period">.</span></div><div class="subtitle-line"><span class="typed" id="${U}t">${esc(d.subtitle)}</span><span class="cursor"></span></div><div class="radar-grid"><div class="side-info"><div class="block"><span class="label">LAT</span> 34° 13′ 26″<br><span class="label">LON</span> 128° 38′ 12″</div><div class="block"><span class="label">☼ TWILIGHT</span><br>200 – 1000m<br>LIGHT 1%</div><div class="block"><span class="label">○ ABYSSAL</span><br>4000m+<br>400atm / 2°C</div></div><div class="radar"><div class="sweep"></div><div class="cross"></div><div class="radar-dots">${makeDots(d.dots)}</div><i class="core"></i></div><div class="depth-gauge"><div class="depth-title">DEPTH / m</div><div class="depth-scale"><div class="depth-tube" style="background:linear-gradient(to bottom,#FAEDA5 0%,#A5D4FA ${pct}%,#fff 100%)"></div><div class="depth-ticks">${ticks}</div></div><div class="depth-current">CURRENT DEPTH<b>${depthLabel}</b></div><div class="depth-note">ABYSSAL ZONE<br>2°C / 400 atm</div></div></div><div class="signature"><span>${esc(d.footleft)}</span><span>${esc(d.footright)}</span></div><div class="log"><div class="intro">▸ ARCHIVED MEMORY / TEXT SIGNAL</div><div class="content">${content(d.bodytext,d.unnamedTone)}</div></div></div></section></div><script>${js}<\/script>`;
+ return full?`<!doctype html><html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>兄弟, 愛.</title></head><body style="margin:0;padding:12px;background:#f8f8f3">${frag}</body></html>`:frag
+}
+$('copy').onclick=async()=>{let code=exported();let box=$('exportCode');box.hidden=false;box.value=code;try{await navigator.clipboard.writeText(code);$('status').textContent='HTML을 복사했어요!'}catch(e){box.focus();box.select();$('status').textContent='코드가 아래에 표시됐어요. 직접 복사해 주세요.'}};
+$('download').onclick=()=>{let blob=new Blob([exported(true)],{type:'text/html;charset=utf-8'}),a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='our-faded-eden-kyodai-ai.html';a.click();setTimeout(()=>URL.revokeObjectURL(a.href),1000);$('status').textContent='HTML 파일을 저장했어요.'};
+$('reset').onclick=()=>{Object.entries(initial).forEach(([k,v])=>$(k).value=v);update();$('status').textContent='예시를 복원했어요.'};
+update();
+</script>
+</body>
+</html>
